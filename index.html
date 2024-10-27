@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="matthew neward"> 
+    <title>CA6-BNH0.1</title>
+  </head>
+  <body>
+    <div> 
+        <p id="Playerchoice"></p>
+        <p id="Computerchoice"></p>
+        <script type="text/javascript">
+
+        //1. Welcome the player to the game using a prompt to collect their name:
+            let username= prompt(`Welcome to Bear Hunter Ninja! Please enter your name to get started:`);
+
+            let player= `${username}`;
+
+        //2. Alert to greet the player with a personalized message.
+            alert(`Hi ` + player +  ` Let/'s Play!!`);
+
+        //3. Prompt the player's choice.
+            let playerChoice= prompt(`Who are you: Bear, Ninja, or Hunter?`);
+
+        //4. Print the personalized game results to the html page and the console as depicted in Step 3 above, HTML on one side, the console output on the other.
+
+            document.getElementById('Playerchoice').innerHTML= player + `, you picked ` + playerChoice;
+            console.log(player + `, you picked ` + playerChoice);
+
+        //computer's "decision"
+            const computerChoice= `Bear`;
+            const computer= `computer`;
+            document.getElementById('Computerchoice').innerHTML= computer + `, you picked ` + computerChoice;
+            console.log(computer + `, you picked ` + computerChoice);
+
+
+
+
+
+
+
+        </script>
+    </div>
+
+  </body>
+</html>
