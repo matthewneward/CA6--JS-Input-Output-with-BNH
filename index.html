@@ -11,6 +11,7 @@
     <div> 
         <p id="Playerchoice"></p>
         <p id="Computerchoice"></p>
+        <p id="Finalresult"></p>
         <script type="text/javascript">
 
         //1. Welcome the player to the game using a prompt to collect their name:
@@ -19,21 +20,163 @@
             let player= `${username}`;
 
         //2. Alert to greet the player with a personalized message.
-            alert(`Hi ` + player +  ` Let/'s Play!!`);
+            alert(`Hi ` + player +  ` Let\'s Play!!`);
 
         //3. Prompt the player's choice.
             let playerChoice= prompt(`Who are you: Bear, Ninja, or Hunter?`);
 
         //4. Print the personalized game results to the html page and the console as depicted in Step 3 above, HTML on one side, the console output on the other.
 
-            document.getElementById('Playerchoice').innerHTML= player + `, you picked ` + playerChoice;
-            console.log(player + `, you picked ` + playerChoice);
+            document.getElementById('Playerchoice').innerHTML= player + `, you picked ` + playerChoice +`!`;
+            console.log(player + `, you picked ` + playerChoice + `!`);
 
         //computer's "decision"
             const computerChoice= `Bear`;
             const computer= `computer`;
-            document.getElementById('Computerchoice').innerHTML= computer + `, you picked ` + computerChoice;
-            console.log(computer + `, you picked ` + computerChoice);
+            document.getElementById('Computerchoice').innerHTML= `The ` + computer + `, picked ` + computerChoice + `!`;
+            console.log(`The ` + computer + `, picked ` + computerChoice + `!`);
+
+
+        //switch board for user choice. going with nested switch since we have 2 variables to make the decision with.
+            let result
+          
+            switch(playerChoice){
+              case `Bear`: {
+                switch (computerChoice) {
+                  case `Bear`: { 
+                    result=`It\'s a tie!`
+                  break;
+                  }
+                  case `Ninja`: {
+                    result= `You win!`
+                  break;
+                  }
+                  case `Hunter`:{
+                    result= `You lose!`
+                  break;
+                  }
+                }
+              break;
+                }
+
+              case `Ninja`:{ 
+                switch (computerChoice){ 
+                  case `Bear`:{ 
+                    result= `You lose!`
+                  break;
+                  } 
+                  case `Ninja`:{ 
+                    result= `It\'s a tie!`
+                  break;
+                  }
+                  case `Hunter`:{
+                    result= `You win!`
+                  break;
+                  }
+                }
+                break;
+                }
+
+              case `Hunter`: {
+                switch (computerChoice){
+                  case `Bear`:{ 
+                    result= `You win!`
+                  break;
+                  }
+                  case `Ninja`:{
+                    result= `You lose!`
+                  break;
+                  }
+                  case `Hunter`:{ 
+                    result= `It\'s a tie!`
+                  break;
+                  }
+              }
+              break;
+              }
+            }
+
+          console.log( result);
+          document.getElementById('Finalresult').innerHTML=result
+
+/*        //switch board for user choice. going with nested switch since we have 2 variables to make the decision with. 
+        switch(playerChoice){
+              case `Bear`: {
+                switch (computerChoice) {
+                  case `Bear`: { 
+                    console.log(`It\'s a tie!`);
+                    document.getElementById('Finalresult').innerHTML=`It\'s a tie!`;
+                  break;
+                  }
+                  case `Ninja`: {
+                    console.log(`You win!`);
+                    document.getElementById('Finalresult').innerHTML=`You win!`;
+                  break;
+                  }
+                  case `Hunter`:{
+                    console.log(`You lose!`);
+                    document.getElementById('Finalresult').innerHTML=`You lose!`;
+                  break;
+                  }
+                }
+              break;
+                }
+
+              case `Ninja`:{ 
+                switch (computerChoice){ 
+                  case `Bear`:{ 
+                    console.log(`you lose!`)
+                    document.getElementById('Finalresult').innerHTML=`You lose!`;
+                  break;
+                  } 
+                  case `Ninja`:{ 
+                    console.log(`It\'s a tie!`);
+                    document.getElementById('Finalresult').innerHTML=`It\'s a tie!`;
+                  break;
+                  }
+                  case `Hunter`:{
+                    console.log(`You win!`);
+                    document.getElementById('Finalresult').innerHTML=`You win!`;
+                  break;
+                  }
+                }
+                break;
+                }
+
+              case `Hunter`: {
+                switch (computerChoice){
+                  case `Bear`:{ 
+                    console.log(`You win!`);
+                    document.getElementById('Finalresult').innerHTML=`You win!`;
+                  break;
+                  }
+                  case `Ninja`:{
+                    console.log(`You lose!`);
+                    document.getElementById('Finalresult').innerHTML=`You lose!`;
+                  break;
+                  }
+                  case `Hunter`:{ 
+                    console.log(`It\'s a tie!`);
+                    document.getElementById('Finalresult').innerHTML=`It\'s a tie!`;
+                  break;
+                  }
+              }
+              }
+            }
+*/
+
+/*        //final if else statement RETURN TO HERE LATER!!!
+            if (Winner) {
+              console.log( `You win!`);
+              document.getElementById('Finalresult').innerHTML=`You win!`;
+            } else if (Tie) {
+              console.log(`It\'s a tie`);
+              document.getElementById('Finalresult').innerHTML=`It\'s a tie!`;
+            } else if (Loser) {
+              console.log(`Computer wins!`);
+              document.getElementById('Finalresult').innerHTML=`You lose!`;
+            }
+*/
 
 
 
